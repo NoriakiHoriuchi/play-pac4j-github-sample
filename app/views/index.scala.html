@@ -1,0 +1,17 @@
+@(profiles: List[org.pac4j.core.profile.CommonProfile])
+<h1>index</h1>
+<a href="github/index.html">Protected url by GitHub : github/index.html</a> (use a real account)<br />
+<a href="githubadmin/index.html">Protected url by GitHub with ROLE_ADMIN: githubadmin/index.html</a> (use a real account)<br />
+<a href="githubcustom/index.html">Protected url by GitHub with custom authorizer (= must be a <em>CommonProfile</em> where the username starts with "jle"): githubcustom/index.html</a> (login with form or basic authentication before with jle* username)<br />
+<br />
+<a href="forceLogin?client_name=GitHubClient">Force GitHub login</a> (even if already authenticated)<br />
+<br />
+<a href="/logout?url=/?forcepostlogouturl">logout</a>
+<br /><br />
+  profile : @profiles
+
+  <!-- Link to Google CDN's jQuery; fall back to local -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="assets/js/jquery.min.js"><\/script>')</script>
+
+<script src="assets/js/app.js"></script>

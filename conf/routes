@@ -1,0 +1,25 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Public urls
+GET         /                                 controllers.Application.index()
+
+# URLs protected via Controller
+GET         /github/index.html              controllers.Application.gitHubIndex()
+GET         /githubadmin/index.html         controllers.Application.gitHubAdminIndex()
+GET         /githubcustom/index.html        controllers.Application.gitHubCustomIndex()
+
+# URLs protected via Filter
+GET         /filter/github/index.html              controllers.ApplicationWithFilter.gitHubIndex()
+GET         /filter/githubadmin/index.html         controllers.ApplicationWithFilter.gitHubAdminIndex()
+GET         /filter/githubcustom/index.html        controllers.ApplicationWithFilter.gitHubCustomIndex()
+
+# Routes necessary for play-pac4j
+GET         /forceLogin                       controllers.Application.forceLogin()
+GET         /callback                         @org.pac4j.play.CallbackController.callback()
+POST        /callback                         @org.pac4j.play.CallbackController.callback()
+GET         /logout                           @org.pac4j.play.ApplicationLogoutController.logout()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
