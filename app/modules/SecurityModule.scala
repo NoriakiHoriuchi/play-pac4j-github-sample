@@ -22,6 +22,7 @@ class SecurityModule(environment: Environment, configuration: Configuration) ext
 
     // OAuth
     val gitHubClient = new GitHubClient(gitHubId, gitHubSecret)
+    gitHubClient.setScope("repo,user") // default is "user"
 
     val clients = new Clients(baseUrl + "/callback", gitHubClient)
 
